@@ -140,8 +140,9 @@ blockquote p {
 <script src="../../js/stack.v1.min.js"></script>
 -->
 
-<script src="../../js/d3.v4.min.js"></script>
-<script src="../../js/stack.v2.js"></script>
+<script src="js/d3.v4.min.js"></script>
+<script src="js/d3-composite-projections.min.js"></script>
+<script src="js/stack.v2.js"></script>
 <script>
 
 var mystack = stack()
@@ -496,7 +497,7 @@ function startExampleSix() {
 
   var colorScale = d3.scaleOrdinal(d3.schemeCategory20);
 
-  d3.json("resultsSix.json", function(error, data) {
+  d3.json("resultsFive.json", function(error, data) {
     d3.json("ccaa.json", function(error, ccaa) {
 
       svg.selectAll(".ccaa")
