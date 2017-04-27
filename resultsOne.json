@@ -1,0 +1,22 @@
+[
+  {"name":"Barcelona", "result": 91},
+  {"name":"Real Madrid", "result": 	90},
+  {"name":"Atlético de Madrid", "result":	88},
+  {"name":"Villarreal", "result": 64},
+  {"name":"Athletic Club", "result": 	62},
+  {"name":"Celta de Vigo", "result":	60},
+  {"name":"Sevilla", "result": 52},
+  {"name":"Málaga", "result": 48},
+  {"name":"Real Sociedad", "result": 48},
+  {"name":"Real Betis", "result": 45},
+  {"name":"Las Palmas", "result":	44},
+  {"name":"Valencia", "result":	44},
+  {"name":"Espanyol", "result":	43},
+  {"name":"Eibar", "result": 43},
+  {"name":"Deportivo de La Coruña", "result":	42},
+  {"name":"Granada", "result": 39},
+  {"name":"Sporting de Gijón", "result": 39},
+  {"name":"Rayo Vallecano", "result":	38},
+  {"name":"Getafe", "result": 36},
+  {"name":"Levante", "result": 32}
+]
