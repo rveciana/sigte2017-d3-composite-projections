@@ -121,6 +121,18 @@ blockquote p {
   <h3><i>"Layouts"</i></h3>
   <div id="exampleThreePlaceholder"></div>
 </section>
+<section class="example" style="" id="exampleFour">
+  <h3><i>"Layouts"</i></h3>
+  <div id="exampleFourPlaceholder"></div>
+</section>
+<section class="example" style="" id="exampleFive">
+  <h3>Mapas</h3>
+  <div id="exampleFivePlaceholder"></div>
+</section>
+<section class="example" style="" id="exampleSix">
+  <h3>d3-composite-projections</h3>
+  <div id="exampleSixPlaceholder"></div>
+</section>
 
 
 <!--
@@ -139,7 +151,10 @@ var mystack = stack()
 var section = d3.selectAll("section"),
 exampleOneIndex = 0,
 exampleTwoIndex = 0,
-exampleThreeIndex = 0;
+exampleThreeIndex = 0,
+exampleFourIndex = 0,
+exampleFiveIndex = 0,
+exampleSixIndex = 0;
 
 for(var i = 0; i < section['_groups'][0].length; i++){
     if( section['_groups'][0].item(i).id == 'exampleOne')
@@ -148,6 +163,13 @@ for(var i = 0; i < section['_groups'][0].length; i++){
         exampleTwoIndex = i;
     if( section['_groups'][0].item(i).id == 'exampleThree')
         exampleThreeIndex = i;
+    if( section['_groups'][0].item(i).id == 'exampleFour')
+        exampleFourIndex = i;
+    if( section['_groups'][0].item(i).id == 'exampleFive')
+        exampleFiveIndex = i;
+    if( section['_groups'][0].item(i).id == 'exampleSix')
+        exampleSixIndex = i;
+
 }
 
 
@@ -162,6 +184,12 @@ function activate(d, i) {
     startExampleTwo();
   } else if (i === exampleThreeIndex) {
     startExampleThree();
+  } else if (i === exampleFourIndex) {
+    startExampleFour();
+  } else if (i === exampleFiveIndex) {
+    startExampleFive();
+  } else if (i === exampleSixIndex) {
+    startExampleSix();
   }
 }
 
@@ -172,6 +200,12 @@ function deactivate(d, i) {
     stopExampleTwo();
   } else if (i === exampleThreeIndex) {
     stopExampleThree();
+  } else if (i === exampleFourIndex) {
+    stopExampleFour();
+  } else if (i === exampleFiveIndex) {
+    stopExampleFive();
+  } else if (i === exampleSixIndex) {
+    stopExampleSix();
   }
 }
 
@@ -271,7 +305,7 @@ function startExampleThree() {
   var maxRadius = height*0.1;
   var padding = 1.5;
 
-  var svg = d3.select("body").append("svg")
+  var svg = d3.select("#exampleThreePlaceholder").append("svg")
       .attr("width", width)
       .attr("height", height);
 
@@ -347,6 +381,62 @@ function startExampleThree() {
 
 }
 
+function startExampleFour() {
+  var width = 960;
+  var height = 500;
+  var radius = 240;
+
+  d3.json("resultsFour.json", function(error, data) {
+
+    var colorScale = d3.scaleOrdinal(d3.schemeCategory20);
+
+    var svg = d3.select("#exampleFourPlaceholder").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+      .attr("transform", "translate(" + width / 3 + "," + height / 2 + ")");
+
+    var arc = d3.arc()
+      .outerRadius(radius - 10)
+      .innerRadius(radius/4);
+
+    var pie = d3.pie()
+        .sort(null)
+        .value(function(d) { return d.result; })
+        .startAngle(-1*Math.PI/2)
+        .endAngle(Math.PI/2);
+
+    var g = svg.selectAll(".arc")
+        .data(pie(data))
+      .enter().append("g")
+        .attr("class", "arc");
+
+    g.append("path")
+        .attr("d", arc)
+        .style("fill", function(d, i) { return colorScale(i); });
+
+    g.append("rect")
+      .attr("height", 15)
+      .attr("width", 15)
+      .attr("x", radius)
+      .attr("y", function(d, i) {return -radius + i * 18;})
+      .style("fill", function(d, i) { return colorScale(i); });
+
+    g.append("text")
+       .attr("class", "label")
+       .attr("dy", ".9em")
+       .attr("x", radius + 20)
+       .attr("y", function(d, i) { return -radius + i * 18;})
+       .attr("font-size", "12px")
+       .text( function(d) { return d.data.name; })
+  });
+
+}
+
+function startExampleFive() {}
+
+function startExampleSix() {}
+
 
 function stopExampleOne() {
   d3.select("#exampleOnePlaceholder").selectAll("*").remove();
@@ -358,6 +448,18 @@ function stopExampleTwo() {
 
 function stopExampleThree() {
   d3.select("#exampleThreePlaceholder").selectAll("*").remove();
+}
+
+function stopExampleFour() {
+  d3.select("#exampleFourPlaceholder").selectAll("*").remove();
+}
+
+function stopExampleFive() {
+  d3.select("#exampleFivePlaceholder").selectAll("*").remove();
+}
+
+function stopExampleSix() {
+  d3.select("#exampleSixPlaceholder").selectAll("*").remove();
 }
 
 
