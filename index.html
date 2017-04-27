@@ -433,9 +433,104 @@ function startExampleFour() {
 
 }
 
-function startExampleFive() {}
+function startExampleFive() {
+  var width = 960;
+  var height = 500;
+  var svg = d3.select("#exampleFivePlaceholder").append("svg")
+  .attr("width", width)
+  .attr("height", height);
 
-function startExampleSix() {}
+  var projection = d3.geoConicConformal()
+                  .rotate([5, -38.6])
+                  .parallels([0,60])
+                  .scale(2700);
+
+  var path = d3.geoPath()
+      .projection(projection);
+
+  var colorScale = d3.scaleOrdinal(d3.schemeCategory20);
+
+  d3.json("resultsFive.json", function(error, data) {
+    d3.json("ccaa.json", function(error, ccaa) {
+
+      svg.selectAll(".ccaa")
+        .data(ccaa.features)
+        .enter()
+        .append("path")
+        .attr("class", "region")
+        .attr("d", path)
+        .style("fill", function(d, i){return colorScale(i);})
+        .style("stroke", "#000")
+        .style("fill-opacity", 0.15);
+
+
+      svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr('r', function(d){ return Math.sqrt(d.result);})
+        .attr('cx', function(d){return projection(d.coords)[0];})
+        .attr('cy', function(d){return projection(d.coords)[1];})
+        .attr('fill',function(d, i){return colorScale(i);})
+        .attr('stroke', 'black')
+        .attr('stroke-width', 1);
+
+
+  });
+  });
+
+}
+
+function startExampleSix() {
+
+  var width = 960;
+  var height = 500;
+  var svg = d3.select("#exampleSixPlaceholder").append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
+  var projection = d3.geoConicConformalSpain();
+
+  var path = d3.geoPath()
+      .projection(projection);
+
+  var colorScale = d3.scaleOrdinal(d3.schemeCategory20);
+
+  d3.json("resultsSix.json", function(error, data) {
+    d3.json("ccaa.json", function(error, ccaa) {
+
+      svg.selectAll(".ccaa")
+        .data(ccaa.features)
+        .enter()
+        .append("path")
+        .attr("class", "region")
+        .attr("d", path)
+        .style("fill", function(d, i){return colorScale(i);})
+        .style("stroke", "#000")
+        .style("fill-opacity", 0.15);
+
+      svg
+        .append("path")
+        .style("fill","none")
+        .style("stroke","#000")
+        .attr("d", projection.getCompositionBorders());
+
+      svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr('r', function(d){ return Math.sqrt(d.result);})
+        .attr('cx', function(d){return projection(d.coords)[0];})
+        .attr('cy', function(d){return projection(d.coords)[1];})
+        .attr('fill',function(d, i){return colorScale(i);})
+        .attr('stroke', 'black')
+        .attr('stroke-width', 1);
+
+
+  });
+  });
+
+}
 
 
 function stopExampleOne() {

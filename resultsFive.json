@@ -1,0 +1,22 @@
+[
+  {"name":"Barcelona", "result": 91, "coords": [2.118121, 41.379866]},
+  {"name":"Real Madrid", "result": 	90, "coords": [-3.688591, 40.453038]},
+  {"name":"Atlético de Madrid", "result":	88, "coords": [-3.720936, 40.401765]},
+  {"name":"Villarreal", "result": 64, "coords": [-0.103726, 39.944002]},
+  {"name":"Athletic Club", "result": 	62, "coords": [-2.949593, 43.264193]},
+  {"name":"Celta de Vigo", "result":	60, "coords": [-8.739849, 42.211806]},
+  {"name":"Sevilla", "result": 52, "coords": [-5.970561, 37.383946]},
+  {"name":"Málaga", "result": 48, "coords": [-4.426705, 36.734121]},
+  {"name":"Real Sociedad", "result": 48, "coords": [-1.973907, 43.301425]},
+  {"name":"Real Betis", "result": 45, "coords": [-5.981677,  37.356410]},
+  {"name":"Las Palmas", "result":	44, "coords": [-15.456681, 28.100198]},
+  {"name":"Valencia", "result":	44, "coords": [-0.358161, 39.474414]},
+  {"name":"Espanyol", "result":	43, "coords": [2.075452, 41.347796]},
+  {"name":"Eibar", "result": 43, "coords": [-2.475771, 43.181545]},
+  {"name":"Deportivo de La Coruña", "result":	42, "coords": [-8.417548, 43.368594]},
+  {"name":"Granada", "result": 39, "coords": [-3.595775, 37.152730]},
+  {"name":"Sporting de Gijón", "result": 39, "coords": [-5.637628, 43.536156]},
+  {"name":"Rayo Vallecano", "result":	38, "coords": [-3.658737, 40.391690]},
+  {"name":"Getafe", "result": 36, "coords": [-3.715176, 40.325612]},
+  {"name":"Levante", "result": 32, "coords": [-0.363822, 39.494586]}
+]
