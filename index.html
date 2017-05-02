@@ -63,6 +63,45 @@ blockquote p {
 }
 
 
+#tooltipSeven {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 10px;
+  width: 240px;
+  color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  border-radius:5px;
+  transition: .2s;
+}
+.column-holder {
+  table-layout: fixed;
+  display: table;
+  width: 100%;
+}
+
+.column-holder .column {
+  vertical-align: bottom;
+  display: table-cell;
+  padding: 0 10px;
+}
+
+.percent{
+  width: 30%;
+}
+.name{
+  width: 70%;
+}
+
 </style>
 
 
@@ -147,6 +186,7 @@ blockquote p {
 </section>
 <section class="example" style="" id="exampleSeven">
   <h3>conicConformalFrance</h3>
+  <div id="tooltipSeven"></div>
   <div id="exampleSevenPlaceholder"></div>
 </section>
 <section style="padding:5em 9em;">
@@ -160,6 +200,7 @@ blockquote p {
 <section style="padding:5em 9em;">
   <h3><a href="http://datos.elespanol.com/elecciones-generales/resultados/analisis/">conicConformalSpain</a></h3>
   <img src="img/conicConformalSpain.png" width="80%"/>
+
 </section>
 
 
@@ -171,7 +212,9 @@ blockquote p {
 <script src="js/d3.v4.min.js"></script>
 <script src="js/d3-composite-projections.min.js"></script>
 <script src="js/stack.v2.js"></script>
+<script src="js/topojson.v2.min.js"></script>
 <script src="js/initialExamples.js"></script>
+<script src="js/exampleSeven.js"></script>
 <script>
 
 var mystack = stack()
