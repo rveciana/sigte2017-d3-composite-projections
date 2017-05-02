@@ -185,7 +185,7 @@ blockquote p {
   </ul>
 </section>
 <section class="example" style="" id="exampleSeven">
-  <h3>conicConformalFrance</h3>
+  <h3>conicConformalFrance: Mapa electoral</h3>
   <div id="tooltipSeven"></div>
   <div id="exampleSevenPlaceholder"></div>
 </section>
@@ -198,28 +198,26 @@ blockquote p {
   </ul>
 </section>
 <section style="padding:5em 9em;">
-  <h3><a href="http://datos.elespanol.com/elecciones-generales/resultados/analisis/">conicConformalSpain</a></h3>
+  <h3><a href="http://datos.elespanol.com/elecciones-generales/resultados/analisis/">conicConformalSpain</a>: Uso en periódicos</h3>
   <img src="img/conicConformalSpain.png" width="80%"/>
-
 </section>
 <section class="example" style="" id="exampleEight">
-  <h3>marcatorMalaysia</h3>
+  <h3>marcatorMalaysia: Mapa de banderas</h3>
   <div id="exampleEightPlaceholder"></div>
 </section>
-
-
-<!--
-<script src="../../js/d3.v3.min.js"></script>
-<script src="../../js/stack.v1.min.js"></script>
--->
+<section class="example" style="" id="exampleNine">
+  <h3>conicConformalEurope: Coropletas estadísticas</h3>
+  <div id="exampleNinePlaceholder"></div>
+</section>
 
 <script src="js/d3.v4.min.js"></script>
 <script src="js/d3-composite-projections.min.js"></script>
 <script src="js/stack.v2.js"></script>
 <script src="js/topojson.v2.min.js"></script>
+<script src="http://d3js.org/colorbrewer.v1.min.js"></script>
 <script src="js/initialExamples.js"></script>
 <script src="js/exampleSeven.js"></script>
-<script src="js/exampleEight.js"></script>
+<script src="js/exampleEightNine.js"></script>
 
 <script>
 
@@ -233,9 +231,10 @@ exampleTwoIndex = 0,
 exampleThreeIndex = 0,
 exampleFourIndex = 0,
 exampleFiveIndex = 0,
-exampleSixIndex = 0;
-exampleSevenIndex = 0;
-exampleEightIndex = 0;
+exampleSixIndex = 0,
+exampleSevenIndex = 0,
+exampleEightIndex = 0,
+exampleNineIndex = 0;
 
 for(var i = 0; i < section['_groups'][0].length; i++){
     if( section['_groups'][0].item(i).id == 'exampleOne')
@@ -254,6 +253,8 @@ for(var i = 0; i < section['_groups'][0].length; i++){
         exampleSevenIndex = i;
     if( section['_groups'][0].item(i).id == 'exampleEight')
         exampleEightIndex = i;
+    if( section['_groups'][0].item(i).id == 'exampleNine')
+        exampleNineIndex = i;
 
 
 }
@@ -280,6 +281,8 @@ function activate(d, i) {
     startExampleSeven();
   } else if (i === exampleEightIndex) {
     startExampleEight();
+  } else if (i === exampleNineIndex) {
+    startExampleNine();
   }
 }
 
@@ -300,6 +303,8 @@ function deactivate(d, i) {
     stopExampleSeven();
   } else if (i === exampleEightIndex) {
     stopExampleEight();
+  } else if (i === exampleNineIndex) {
+    stopExampleNine();
   }
 }
 

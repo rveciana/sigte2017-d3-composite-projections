@@ -81,6 +81,64 @@ d3.json("malaysia.json", function(error, malaysia) {
 
 }
 
+function startExampleNine() {
+    var width = 960;
+    var height = 500;
+    var svg = d3.select("#exampleNinePlaceholder").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+    var projection = d3.geoConicConformalEurope();
+
+    var path = d3.geoPath()
+        .projection(projection);
+
+    var colorScale = d3.scaleOrdinal(colorbrewer.OrRd[9])
+        .domain([10,60]);
+
+    //d3.scale.quantize().domain([10,60]).range(colorbrewer.OrRd[9]);
+
+    d3.json("nuts2.json", function(error, europe) {
+      d3.csv("povertry_rate.csv", function(error, povrate) {
+        var land = topojson.feature(europe, europe.objects.nuts2);
+
+        data = {};
+        povrate.forEach(function(d) {
+          data[d.GEO] = d['2013'];
+        });
+
+        svg.selectAll("path")
+          .data(land.features)
+          .enter()
+          .append("path")
+          .attr("d", path)
+          .style("stroke","#000")
+          .style("stroke-width",".5px")
+          .style("fill",function(d){
+            var value = data[d.id];
+            if (isNaN(value)){
+              value = data[d.id.substring(0,2)];
+            }
+            if (isNaN(value)){
+              return "#fff";
+            }
+
+            return colorScale(value);
+          });
+
+          svg
+          .append("path")
+            .style("fill","none")
+            .style("stroke","#666")
+            .attr("d", projection.getCompositionBorders());
+    });
+    });
+}
+
 function stopExampleEight() {
   d3.select("#exampleEightPlaceholder").selectAll("*").remove();
+}
+
+function stopExampleNine() {
+  d3.select("#exampleNinePlaceholder").selectAll("*").remove();
 }
