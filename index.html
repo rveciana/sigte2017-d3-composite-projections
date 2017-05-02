@@ -202,6 +202,10 @@ blockquote p {
   <img src="img/conicConformalSpain.png" width="80%"/>
 
 </section>
+<section class="example" style="" id="exampleEight">
+  <h3>marcatorMalaysia</h3>
+  <div id="exampleEightPlaceholder"></div>
+</section>
 
 
 <!--
@@ -215,6 +219,8 @@ blockquote p {
 <script src="js/topojson.v2.min.js"></script>
 <script src="js/initialExamples.js"></script>
 <script src="js/exampleSeven.js"></script>
+<script src="js/exampleEight.js"></script>
+
 <script>
 
 var mystack = stack()
@@ -229,6 +235,7 @@ exampleFourIndex = 0,
 exampleFiveIndex = 0,
 exampleSixIndex = 0;
 exampleSevenIndex = 0;
+exampleEightIndex = 0;
 
 for(var i = 0; i < section['_groups'][0].length; i++){
     if( section['_groups'][0].item(i).id == 'exampleOne')
@@ -245,6 +252,8 @@ for(var i = 0; i < section['_groups'][0].length; i++){
         exampleSixIndex = i;
     if( section['_groups'][0].item(i).id == 'exampleSeven')
         exampleSevenIndex = i;
+    if( section['_groups'][0].item(i).id == 'exampleEight')
+        exampleEightIndex = i;
 
 
 }
@@ -269,6 +278,8 @@ function activate(d, i) {
     startExampleSix();
   } else if (i === exampleSevenIndex) {
     startExampleSeven();
+  } else if (i === exampleEightIndex) {
+    startExampleEight();
   }
 }
 
@@ -287,6 +298,8 @@ function deactivate(d, i) {
     stopExampleSix();
   } else if (i === exampleSevenIndex) {
     stopExampleSeven();
+  } else if (i === exampleEightIndex) {
+    stopExampleEight();
   }
 }
 
