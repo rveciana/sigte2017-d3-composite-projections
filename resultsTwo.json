@@ -42,4 +42,27 @@
   {"name":"Getafe", "result": 36, "logo": "img/getafe.png"},
   {"name":"Levante", "result": 32, "logo": "img/levante.png"}
 ]
+},
+{"year": "2016-2017", "results": [
+  {"name":"Real Madrid", "result": 	93, "logo": "img/realmadrid.png"},
+  {"name":"Barcelona", "result": 90, "logo": "img/barcelona.png"},
+  {"name":"Atlético de Madrid", "result":	78, "logo": "img/atmadrid.png"},
+  {"name":"Sevilla", "result": 72, "logo": "img/sevilla.png"},
+  {"name":"Villarreal", "result": 67, "logo": "img/villareal.png"},
+  {"name":"Real Sociedad", "result": 64, "logo": "img/realsociedad.png"},
+  {"name":"Athletic Club", "result": 	63, "logo": "img/bilbao.png"},
+  {"name":"Espanyol", "result":	56, "logo": "img/espanyol.png"},
+  {"name":"Deportivo Alavés", "result":	55, "logo": "img/alaves.png"},
+  {"name":"Eibar", "result": 54, "logo": "img/eibar.png"},
+  {"name":"Málaga", "result": 46, "logo": "img/malaga.png"},
+  {"name":"Valencia", "result":	46, "logo": "img/valencia.png"},
+  {"name":"Celta de Vigo", "result":	45, "logo": "img/celta.png"},
+  {"name":"Las Palmas", "result":	39, "logo": "img/laspalmas.png"},
+  {"name":"Real Betis", "result": 39, "logo": "img/betis.png"},
+  {"name":"Deportivo de La Coruña", "result":	36, "logo": "img/deportivo.png"},
+  {"name":"Leganés", "result": 35, "logo": "img/leganes.png"},
+  {"name":"Sporting de Gijón", "result": 31, "logo": "img/sporting.png"},
+  {"name":"Osasuna", "result": 22, "logo": "img/osasuna.png"},
+  {"name":"Granada", "result": 20, "logo": "img/granada.png"}
+]
 }]
